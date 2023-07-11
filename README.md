@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Documentação da API</title>
-</head>
+
 <body>
   <h1>API de Registro</h1>
 
