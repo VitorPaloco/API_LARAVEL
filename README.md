@@ -1,66 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Documentação da API</title>
+</head>
+<body>
+  <h1>API de Registro</h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  <h2>Introdução</h2>
+  <p>Esta é uma API que permite o armazenamento, exibição e exclusão de registros.</p>
 
-## About Laravel
+  <h2>Endpoints</h2>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+  <h3>1. GET /registros</h3>
+  <p>Retorna todos os registros armazenados.</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  <h3>2. GET /registros/{id}</h3>
+  <p>Retorna um registro específico com base no ID fornecido.</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  <h3>3. POST /registros</h3>
+  <p>Cria um novo registro com os dados fornecidos.</p>
 
-## Learning Laravel
+  <h3>4. PUT /registros/{id}</h3>
+  <p>Atualiza um registro específico com base no ID fornecido.</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+  <h3>5. DELETE /registros/{id}</h3>
+  <p>Exclui um registro específico com base no ID fornecido.</p>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+  <h2>Exemplos de Uso</h2>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+  <h3>Exemplo 1: Obter todos os registros</h3>
+  <pre>
+    GET /registros
+  </pre>
 
-## Laravel Sponsors
+  <h3>Exemplo 2: Obter um registro específico</h3>
+  <pre>
+    GET /registros/1
+  </pre>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+  <h3>Exemplo 3: Criar um novo registro</h3>
+  <pre>
+    POST /registros
+    Content-Type: application/json
 
-### Premium Partners
+    {
+      "nome": "Exemplo",
+      "email": "exemplo@example.com"
+    }
+  </pre>
+  
+  <h3>Exemplo 4: Excluir um registro</h3>
+  <pre>
+    DELETE /registros/1
+  </pre>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+  <h2>Respostas da API</h2>
 
-## Contributing
+  <p>A API responde com os seguintes códigos de status:</p>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+  <ul>
+    <li>200 - OK: A solicitação foi bem-sucedida.</li>
+    <li>201 - Created: O registro foi criado com sucesso.</li>
+    <li>400 - Bad Request: A solicitação contém dados inválidos.</li>
+    <li>404 - Not Found: O registro solicitado não foi encontrado.</li>
+    <li>500 - Internal Server Error: Ocorreu um erro no servidor.</li>
+  </ul>
 
-## Code of Conduct
+  <h2>Recursos Adicionais</h2>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+  <p>Além dos endpoints mencionados acima, a API também pode ter outros recursos, como autenticação, paginação e filtros. Consulte a documentação completa para obter mais detalhes.</p>
+</body>
+</html>
